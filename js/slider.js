@@ -236,13 +236,15 @@
 				width:(this.setting.width - this.setting.sliderWidth) / 2,
 				height:this.setting.sliderHeight * this.setting.scale,
 				top:(this.setting.height - this.setting.sliderHeight * this.setting.scale) / 2,
-				left:0
+				left:0,
+				zIndex:Math.ceil((this.sliderItem.length) / 2)
 			});
 			this.sliderNextBtn.css({
 				width:(this.setting.width - this.setting.sliderWidth) / 2,
 				height:this.setting.sliderHeight * this.setting.scale,
 				top:(this.setting.height - this.setting.sliderHeight * this.setting.scale) / 2,
-				left:(this.setting.width - this.setting.sliderWidth) / 2 + this.setting.sliderWidth
+				left:(this.setting.width - this.setting.sliderWidth) / 2 + this.setting.sliderWidth,
+				zIndex:Math.ceil((this.sliderItem.length) / 2)
 			});
 			this.sliderSpan.css({
 				marginLeft:-(this.sliderSpan.width() / 2)
@@ -296,3 +298,11 @@
 	};
 	window.Slider = Slider;
 })(jQuery)
+
+
+//总结：利用面向对象的方法来封装插件。在思想上面要有大局观念，以函数代替数字。从这个例子中学到以下解决问题的方法
+//1、利用$.parseJSON()来将数据转换为JSON格式
+//2、一种新的轮播图的思想，记住上一帧的样式。
+//3、Jquery方法必须由jQueryDOM来调用
+//4、z-index会受到浮动的影响
+//5、relative会影响height100%继承
